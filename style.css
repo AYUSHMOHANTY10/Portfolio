@@ -10,16 +10,33 @@
   --font: "Space Grotesk", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --bg: #ffffff;
-    --text: #1f2430;
-    --muted: #9aa0a6;
-    --teal: #3b8f8c;
-    --line: #1f2430;
-    --card-line: #1f2430;
-  }
+:root[data-theme="light"] {
+  --bg: #ffffff;
+  --text: #1f2430;
+  --muted: #9aa0a6;
+  --teal: #3b8f8c;
+  --line: #1f2430;
+  --card-line: #1f2430;
 }
+
+/* ---------- Theme toggle ---------- */
+.topbar nav { align-items: center; }
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.theme-toggle:hover { color: var(--teal); border-color: var(--teal); }
+.theme-toggle .icon-sun { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-moon { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-sun { display: block; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
